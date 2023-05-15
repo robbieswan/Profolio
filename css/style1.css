@@ -1,0 +1,53 @@
+/* style3.css */
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ded6d6;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  #headshot {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+  
+  h1, h2 {
+    margin: 10px 0;
+  }
+  
+  /* Skills */
+  #skills {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  #skills li {
+    margin-bottom: 10px;
+  }
+  
+  /* Experience */
+  #experience li,
+  #education li {
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  /* Education */
+  #education {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
