@@ -10,9 +10,9 @@
         "build": "npx tsc",
         "build-cp": "npx tsc && npm run copy-files-npx",
         "copy-files-npx": "npm run cp-css && npm run cp-html && npm run cp-views",
-        "cp-css": "npx copyfiles -u 3 src/public/css/**.css dist/public/css",
-        "cp-html": "npx copyfiles -u 3 src/public/html/**.html dist/public/html",
-        "cp-views": "npx copyfiles -u 3 src/public/views/**.ejs dist/public/views",
+        "cp-css": "npx copyfiles -u 1 src/public/css/**.css dist",
+        "cp-html": "npx copyfiles -u 1 src/public/html/**.html dist",
+        "cp-views": "npx copyfiles -u 1 src/public/views/**.ejs dist",
         "copy-files": "xcopy .\\src\\public dist\\public /s /e"
     },
     "author": "Tyler S",
