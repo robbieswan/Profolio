@@ -31,6 +31,14 @@ body {
     text-align: center;
 }
 
+#view-portfolio-btn {
+    margin-top: 10px;
+}
+
+#view-portfolio-btn button {
+    padding: 10px;
+}
+
 @media screen and (min-width: 780px) {
     #main-content {
         display: grid;

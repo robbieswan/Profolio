@@ -1,22 +1,4 @@
-type profile = {
-    name: string,
-    title: string,
-    bio: string,
-    headshotUrl: string,
-    skills: string[],
-    experience: {
-            company: string,
-            position: string,
-            duration: string,
-            description: string
-        }[],
-    education: {
-            degree: string,
-            institution: string,
-            duration: string,
-            description: string
-        }[],
-}
+import { type profile } from "./types.js";
 
 const dataUrl = 'http://localhost:7777/profile';
 

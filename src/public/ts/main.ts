@@ -1,10 +1,7 @@
-type CSSTemplate = {
-  [key: string]: {
-      [key: string]: string;
-  };
-};
+import { type CSSTemplate } from "./types.js";
+import { getCSSTemplate, objectToCSS } from "./utils.js";
 
-const CSS_URL = 'http://localhost:7777/css/';
+let activeTemplateId = 0;
 
 async function main() {
   try {
@@ -13,18 +10,22 @@ async function main() {
     createTemplateChoices(numTemplates);
     // get initial cssTemplate
     let initialCss: CSSTemplate = await getCSSTemplate(0);
+    activeTemplateId = 0;
     createIFrame(initialCss);
 
     for (let i = 0; i < numTemplates; i++) {
       let css: CSSTemplate = await getCSSTemplate(i);
       let aElem = document.getElementById(`choice-anchor-${i}`)!;
       aElem.addEventListener('click', (e) => {
+        activeTemplateId = i;
         addCSS(css);
       })
     }
   } catch (ex) {
-    console.log(ex);
+    console.error(ex);
   }
+
+  document.getElementById('button')!.addEventListener('click', openPortfolio);
 }
 
 function createTemplateChoices(numChoices: number) {
@@ -42,18 +43,7 @@ function createTemplateChoices(numChoices: number) {
 
     divElem.append(h2Elem);
     choiceElem.append(divElem);
-    choicesDiv.append(choiceElem);
-  }
-}
-
-async function getCSSTemplate(templateId: number) {
-  const url = CSS_URL + templateId;
-  const response = await fetch(url);
-  if (response.ok) {
-    const data = await response.json();
-    return data.cssTemplate as CSSTemplate;
-  } else {
-    throw new Error(`Unable to retreive css for ${templateId}`);
+    choicesDiv.insertBefore(choiceElem, document.getElementById('view-portfolio-btn')! as Node);
   }
 }
 
@@ -83,16 +73,9 @@ function addCSS(css: CSSTemplate) {
   doc.body.append(styleTag);
 }
 
-function objectToCSS(cssObject: CSSTemplate): string {
-  let css = '';
-  for (let key in cssObject) {
-    css += key + ' {\n';
-    for (let property in cssObject[key]) {
-      css += '  ' + property + ': ' + cssObject[key][property] + ';\n';
-    }
-    css += '}\n';
-  }
-  return css;
+function openPortfolio() {
+  localStorage.setItem('templateID', JSON.stringify(activeTemplateId));
+  window.open('http://localhost:7777/portfolio', "_self");
 }
 
 main();
