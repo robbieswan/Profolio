@@ -1,0 +1,87 @@
+body {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 90%;
+}
+
+header, main, footer {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+header img {
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+h1, h2 {
+    color: #333333;
+}
+
+#headshot {
+    border: none;
+}
+
+.content-preview {
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#template-choices {
+    display: none;
+}
+
+.choice-anchor {
+    margin: 10px;
+}
+
+.choice-container {
+    border: none;
+    text-align: center;
+}
+
+#view-portfolio-btn {
+    margin-top: 10px;
+}
+
+#view-portfolio-btn button {
+    padding: 10px;
+    background-color: #5c94e8;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 780px) {
+    #main-content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    .content-preview {
+        width: 60%;
+    }
+}
