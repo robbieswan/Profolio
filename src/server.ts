@@ -32,6 +32,10 @@ app.get('/styling', (req: Request, res: Response) => {
 
 app.get('/portfolio', (req: Request, res: Response) => {
     res.render('portfolio', {});
+});
+
+app.get('/', (req: Request, res: Response) => {
+    res.render('index', {});
 })
 
 

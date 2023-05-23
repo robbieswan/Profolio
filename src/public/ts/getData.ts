@@ -1,17 +1,15 @@
 import { type profile } from "./types.js";
 
-const dataUrl = 'http://localhost:7777/profile';
-
 async function mainGetData() {
     const profileData: profile = await getData();
     populateData(profileData);
 }
 
 async function getData(): Promise<profile> {
-    const response = await fetch(dataUrl);
-    if (response.ok) {
-        const data = await response.json();
-        return data.profile as profile;
+    const profile = localStorage.getItem('input-data');
+    if (profile) {
+        const data: profile = JSON.parse(profile);
+        return data;
     } else {
         throw new Error('Unable to get profile');
     }

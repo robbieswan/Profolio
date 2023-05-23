@@ -12,7 +12,7 @@ async function main() {
     let initialCss: CSSTemplate = await getCSSTemplate(0);
     activeTemplateId = 0;
     createIFrame(initialCss);
-
+    
     for (let i = 0; i < numTemplates; i++) {
       let css: CSSTemplate = await getCSSTemplate(i);
       let aElem = document.getElementById(`choice-anchor-${i}`)!;
@@ -75,7 +75,7 @@ function addCSS(css: CSSTemplate) {
 
 function openPortfolio() {
   localStorage.setItem('templateID', JSON.stringify(activeTemplateId));
-  window.open('http://localhost:7777/portfolio', "_self");
+  window.open('/portfolio', "_self");
 }
 
 main();
