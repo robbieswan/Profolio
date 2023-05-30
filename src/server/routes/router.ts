@@ -1,17 +1,18 @@
-import express from "express";
-import controller from "../controllers/controller"
+import express, { Request, Response, Router } from "express";
+import * as cont from "../controllers/controller"
 
-const router = new express.Router();
+const router: Router = express.Router();
 
-router.get('/input', (req: Request, res: Response) => {
-   res.render('input', {});
-})
+// Static Routes
+router.use("/css", express.static(__dirname  + "src/client/css"));
+router.use("/ts", express.static(__dirname + "src/client/ts"));
+router.use("/views", express.static(__dirname + "src/client/views"));
+// End Static Routes
 
-router.get('/styling', (req: Request, res: Response) => {
-   res.render('styling', {
-       numTemplates: Object.keys(CUSTOM_CSS_TEMPLATES).length || 0,
-   });
-});
+// Page Delivery Routes
+router.get('/input', (req: Request, res: Response))
+
+router.get('/styling', cont.deliverStyling);
 
 router.get('/css/:templateId', (req: Request, res: Response) => {
    const templateId: number = parseInt(req.params.templateId);
@@ -28,5 +29,6 @@ router.get('/profile', (req: Request, res: Response) => {
 router.get('/portfolio', (req: Request, res: Response) => {
    res.render('portfolio', {});
 })
+// End Page Delivery Routes
 
 export default router;
