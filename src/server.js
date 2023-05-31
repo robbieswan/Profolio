@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 5361;
 
 
-app.set('views', 'src/public/views');
+app.set('views', 'src/views');
 app.set('view engine', 'ejs');
 
 app.get('/css/:templateId', (req, res) => {
@@ -14,6 +14,14 @@ app.get('/css/:templateId', (req, res) => {
     const cssTemplate = CUSTOM_CSS_TEMPLATES[templateId];
 
     res.status(200).send({cssTemplate});
+});
+
+app.get('/', (req, res) => {
+    res.render('home', {});
+})
+
+app.get('/input', (req, res) => {
+    res.render('input', {});
 });
 
 app.get('/profile', (req, res) => {

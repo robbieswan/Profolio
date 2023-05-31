@@ -1,4 +1,4 @@
-import { getCSSTemplate, objectToCSS } from "./utils.js";
+import { getCSSTemplate, objectToCSS } from "../public/utils.js";
 
 let activeTemplateId = 0;
 

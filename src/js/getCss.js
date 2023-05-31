@@ -1,4 +1,4 @@
-import { getCSSTemplate, objectToCSS } from "./utils.js";
+import { getCSSTemplate, objectToCSS } from "../public/utilities/index.js";
 
 async function main() {
     let templateID = getTemplateId();
