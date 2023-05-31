@@ -3,10 +3,15 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "dev": "nodemon src/server/server.ts -w src/server",
-        "start": "NODE_ENV=production ts-node src/server/server.ts",
+        "dev": "nodemon -w src/server.ts src/server",
+        "start": "NODE_ENV=production ts-node src/server.ts",
         "build": "vite build",
         "lint": "eslint src --fix"
+    },
+    "nodemonConfig": {
+            "watch": ["src/**/*.ts"],
+            "ext": "ts",
+            "exec": "ts-node ./src/server.ts"
     },
     "author": "Tyler S, Caleb B, Ekene O",
     "license": "ISC",
