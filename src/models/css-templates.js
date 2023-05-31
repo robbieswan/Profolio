@@ -1,10 +1,4 @@
-export type CSSTemplate = {
-   [key: string]: {
-       [key: string]: string;
-   };
-}
-
-const CUSTOM_CSS_TEMPLATES: Record<number, CSSTemplate> = {
+export const CUSTOM_CSS_TEMPLATES = {
    0: {
        '.container':{
            'max-width': '800px',
@@ -131,5 +125,3 @@ const CUSTOM_CSS_TEMPLATES: Record<number, CSSTemplate> = {
        },
    }
 };
-
-export default CUSTOM_CSS_TEMPLATES;

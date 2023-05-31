@@ -1,21 +1,20 @@
-import { type CSSTemplate } from "./types";
-import { getCSSTemplate, objectToCSS } from "./utils";
+import { getCSSTemplate, objectToCSS } from "./utils.js";
 
 let activeTemplateId = 0;
 
 async function main() {
   try {
-    const numTemplatesElement = document.getElementById('numTemplates')!;
-    let numTemplates = parseInt(numTemplatesElement.textContent!);
+    const numTemplatesElement = document.getElementById('numTemplates');
+    let numTemplates = parseInt(numTemplatesElement.textContent);
     createTemplateChoices(numTemplates);
     // get initial cssTemplate
-    let initialCss: CSSTemplate = await getCSSTemplate(0);
+    let initialCss = await getCSSTemplate(0);
     activeTemplateId = 0;
     createIFrame(initialCss);
 
     for (let i = 0; i < numTemplates; i++) {
-      let css: CSSTemplate = await getCSSTemplate(i);
-      let aElem = document.getElementById(`choice-anchor-${i}`)!;
+      let css = await getCSSTemplate(i);
+      let aElem = document.getElementById(`choice-anchor-${i}`);
       aElem.addEventListener('click', (e) => {
         activeTemplateId = i;
         addCSS(css);
@@ -25,11 +24,11 @@ async function main() {
     console.error(ex);
   }
 
-  document.getElementById('button')!.addEventListener('click', openPortfolio);
+  document.getElementById('button').addEventListener('click', openPortfolio);
 }
 
-function createTemplateChoices(numChoices: number) {
-  let choicesDiv = document.getElementById('template-choices')!;
+function createTemplateChoices(numChoices) {
+  let choicesDiv = document.getElementById('template-choices');
   for (let i = 0; i < numChoices; i++) {
     let choiceElem = document.createElement('a');
     choiceElem.id = `choice-anchor-${i}`;
@@ -43,17 +42,17 @@ function createTemplateChoices(numChoices: number) {
 
     divElem.append(h2Elem);
     choiceElem.append(divElem);
-    choicesDiv.insertBefore(choiceElem, document.getElementById('view-portfolio-btn')! as Node);
+    choicesDiv.insertBefore(choiceElem, document.getElementById('view-portfolio-btn'));
   }
 }
 
-function createIFrame(cssTemplate: CSSTemplate) {
+function createIFrame(cssTemplate) {
   const iFrame = document.createElement('iframe');
   iFrame.src = './html/customtemplate.html';
   iFrame.id = `css-template-preview`;
   iFrame.classList.add('content-preview');
 
-  const contentArea = document.getElementById('main-content')!;
+  const contentArea = document.getElementById('main-content');
 
   contentArea.insertBefore(iFrame, contentArea.firstChild);
 
@@ -62,13 +61,13 @@ function createIFrame(cssTemplate: CSSTemplate) {
   }
 }
 
-function addCSS(css: CSSTemplate) {
-  const iFrame = document.getElementById(`css-template-preview`)! as HTMLIFrameElement;
-  let doc = iFrame.contentDocument!;
+function addCSS(css) {
+  const iFrame = document.getElementById(`css-template-preview`);
+  let doc = iFrame.contentDocument;
 
   const cssString = objectToCSS(css);
 
-  const styleTag = doc.getElementById('stylesheet')!;
+  const styleTag = doc.getElementById('stylesheet');
   styleTag.textContent = cssString;
   doc.body.append(styleTag);
 }

@@ -2,16 +2,11 @@
     "name": "profolio",
     "version": "1.0.0",
     "description": "",
+    "type": "module",
     "scripts": {
-        "dev": "nodemon -w src/server.ts src/server",
-        "start": "NODE_ENV=production ts-node src/server.ts",
+        "dev": "nodemon src/server",
         "build": "vite build",
         "lint": "eslint src --fix"
-    },
-    "nodemonConfig": {
-            "watch": ["src/**/*.ts"],
-            "ext": "ts",
-            "exec": "ts-node ./src/server.ts"
     },
     "author": "Tyler S, Caleb B, Ekene O",
     "license": "ISC",
@@ -21,14 +16,8 @@
         "pdf-parse": "^1.1.1"
     },
     "devDependencies": {
-        "@types/ejs": "^3.1.2",
-        "@types/express": "^4.17.17",
-        "@types/node": "^20.1.2",
-        "@typescript-eslint/eslint-plugin": "^5.59.6",
         "eslint": "^8.41.0",
         "nodemon": "^2.0.20",
-        "ts-node": "^10.9.1",
-        "typescript": "^5.0.4",
         "vite": "^4.0.0",
         "vite-express": "*"
     }
