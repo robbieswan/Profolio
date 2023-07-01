@@ -2,7 +2,7 @@
   "name": "profolio",
   "version": "1.0.0",
   "description": "A automated resume to portfolio builder.",
-  "main": "src/server/index.js",
+  "main": "main.jsx",
   "type": "module",
   "author": "Caleb Barzee, Tyler Shellman, Ekene Okeke",
   "license": "ISC",
