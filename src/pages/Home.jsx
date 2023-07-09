@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import img1 from "../assets/image1.jpg";
 import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
@@ -8,14 +11,15 @@ import "./Home.css"
 export default function Home() {
    return (
    <div className="homepage">
+    <Navbar />
     <header>
       <img className="logo" src={logo} alt="Logo"></img>
       <nav>
         <ul>
-          <li><a href="#">Pricing</a></li>
+          {/* <li><a href="#">Pricing</a></li>
           <li><a href="#">Features</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a className="create-portfolio-button" href="#">Create Portfolio</a></li>
+          <li><a href="#">About Us</a></li> */}
+          <Link to="/resume_upload" className="create-portfolio-button">Create Portfolio</Link>
         </ul>
       </nav>
     </header>
@@ -27,7 +31,7 @@ export default function Home() {
 <div className="bodyEx">  
     <section className="short-caption">
       <p id="caption1">Get hired  <span>faster</span> with your personalized <span>portfolio website!</span></p>
-      <a className="button" href="#">Get Started</a>
+      <Link to="/resume_upload" className="button">Get Started</Link>
     </section>
 
     <section className="res-img">
@@ -105,11 +109,7 @@ export default function Home() {
     </div>
   </section>
 
-
-
-    <script src="script.js"></script>
-    <footer><p>Developed By</p>
-    Duke Okeke, Robbie Swanson, Caleb Barzee, Shellman Tyler</footer>
+    <Footer />
    </div>
    )
 }
