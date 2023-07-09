@@ -6,7 +6,7 @@ import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
 import img4 from "../assets/image4.jpg";
 import logo from "../assets/logo.jpg";
-import "./Home.css"
+import "./css/Home.css"
 
 export default function Home() {
    return (
