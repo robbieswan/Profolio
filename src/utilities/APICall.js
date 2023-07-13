@@ -20,7 +20,7 @@ async function askOpenAI(prompt) {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_KEY' // Replace with your OpenAI API key
+        'Authorization': `Bearer ${process.env.API_KEY}`
       }
     });
 
