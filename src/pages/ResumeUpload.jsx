@@ -10,7 +10,8 @@ export default function ResumeUpload() {
     const reader = new FileReader();
     reader.onload = async (e) => { 
       let text = e.target.result;
-      await findFullName(text);
+      testFunc();
+      window.location = '/preview';
     };
     reader.readAsText(e.target.files[0]);
 }
@@ -19,7 +20,6 @@ export default function ResumeUpload() {
         <div>
           <h1>PDF File Upload and Parse Example</h1>
           <input type="file" id="file" onChange={showFile} />
-          {/* <button type="button" onClick={submitData}>Submit</button> */}
         </div>
       );
 }
