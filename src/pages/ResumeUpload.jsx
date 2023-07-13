@@ -1,30 +1,28 @@
 import React, {useState} from 'react';
+import { findFullName } from '../../APICall'
+
 // import PDFParser from 'pdf-parse';
 
 export default function ResumeUpload() {
-   // const handleFileUpload = (event) => {
-   //    const file = event.target.files[0];
-   //    const reader = new FileReader();
-  
-   //    reader.onload = async (event) => {
-   //      const fileContent = event.target.result;
-        
-   //      try {
-   //        const parsedData = await PDFParser(fileContent);
-   //        console.log('PDF text content:', parsedData.text);
-   //      } catch (error) {
-   //        console.error('Error:', error);
-   //      }
-   //    };
-  
-   //    reader.readAsArrayBuffer(file);
-   //  };
-  
+
+  async function showFile(e) {
+    e.preventDefault();
+    const reader = new FileReader();
+    reader.onload = async (e) => { 
+      const text = e.target.result;
+      await findFullName(text)
+      // console.log(text);
+      // alert(text);
+
+
+    };
+
+}
     
       return (
         <div>
           <h1>PDF File Upload and Parse Example</h1>
-          <input type="file" onChange="" />
+          <input type="file" onChange={showFile} />
         </div>
       );
 }

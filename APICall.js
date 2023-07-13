@@ -1,8 +1,11 @@
-const fs = require('fs');
-const axios = require('axios');
+// import fs from 'fs'
+
+import axios from 'axios'
+// const fs = require('fs');
+// const axios = require('axios');
 
 // Read the resume text file
-const resume = fs.readFileSync('resume.txt', 'utf-8');
+// const resume = fs.readFileSync('resume.txt', 'utf-8');
 
 // Function to send a request to the OpenAI API
 async function askOpenAI(prompt) {
@@ -28,8 +31,9 @@ async function askOpenAI(prompt) {
   }
 }
 
+
 // Prompt 0: Find and output full name
-async function findFullName() {
+export async function findFullName(resume) {
   const prompt = `Based on my resume:\n${resume}\nPlease find and output my full name.`;
   const response = await askOpenAI(prompt);
   const fullName = response;
@@ -39,7 +43,7 @@ async function findFullName() {
 }
 
 // Prompt 0.1: Find and output phone number
-async function findPhoneNumber() {
+export async function findPhoneNumber(resume) {
   const prompt = `Based on my resume:\n${resume}\nPlease find and output my phone number.`;
   const response = await askOpenAI(prompt);
   const phoneNumber = response;
@@ -49,7 +53,7 @@ async function findPhoneNumber() {
 }
 
 // Prompt 1: Generate tagline
-async function generateTagline() {
+export async function generateTagline(resume) {
   const prompt = `Based on my resume:\n${resume}\nGive me a tagline that would describe who I am and what I do extremely well to a potential employer.`;
   const response = await askOpenAI(prompt);
   const tagline = response;
@@ -59,7 +63,7 @@ async function generateTagline() {
 }
 
 // Prompt 2: First work experience synopsis
-async function generateFirstWorkExperienceSynopsis() {
+export async function generateFirstWorkExperienceSynopsis(resume) {
   const prompt = `Based on my resume:\n${resume}\nOnly focus on my first listed work experience. From this first work experience, write a 3 sentence synopsis describing what I did, including the impact I had with the most important details that would sound great to a potential hiring manager.`;
   const response = await askOpenAI(prompt);
   const synopsis = response;
@@ -69,7 +73,7 @@ async function generateFirstWorkExperienceSynopsis() {
 }
 
 // Prompt 3: Second work experience synopsis
-async function generateSecondWorkExperienceSynopsis() {
+export async function generateSecondWorkExperienceSynopsis(resume) {
   const prompt = `Based on my resume:\n${resume}\nOnly focus on my second listed work experience. From this second work experience, write a 3 sentence synopsis describing what I did, including the impact I had with the most important details that would sound great to a potential hiring manager.`;
   const response = await askOpenAI(prompt);
   const synopsis = response;
@@ -79,7 +83,7 @@ async function generateSecondWorkExperienceSynopsis() {
 }
 
 // Prompt 4: Third work experience synopsis
-async function generateThirdWorkExperienceSynopsis() {
+export async function generateThirdWorkExperienceSynopsis(resume) {
   const prompt = `Based on my resume:\n${resume}\nOnly focus on my third listed work experience. From this third work experience, write a 3 sentence synopsis describing what I did, including the impact I had with the most important details that would sound great to a potential hiring manager.`;
   const response = await askOpenAI(prompt);
   const synopsis = response;
@@ -89,9 +93,9 @@ async function generateThirdWorkExperienceSynopsis() {
 }
 
 // Call the functions
-findFullName();
-findPhoneNumber();
-generateTagline();
-generateFirstWorkExperienceSynopsis();
-generateSecondWorkExperienceSynopsis();
-generateThirdWorkExperienceSynopsis();
+// findFullName();
+// findPhoneNumber();
+// generateTagline();
+// generateFirstWorkExperienceSynopsis();
+// generateSecondWorkExperienceSynopsis();
+// generateThirdWorkExperienceSynopsis();
