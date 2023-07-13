@@ -1,5 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
+require('dotenv').config();
 
 // Read the resume text file
 const resume = fs.readFileSync('resume.txt', 'utf-8');
@@ -17,7 +18,7 @@ async function askOpenAI(prompt) {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_KEY' // Replace with your OpenAI API key
+        'Authorization': `Bearer ${process.env.API_KEY}`
       }
     });
 
