@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { findFullName } from '../../APICall'
+import { findFullName, testFunc } from '../utilities/APICall';
 
 // import PDFParser from 'pdf-parse';
 
@@ -9,20 +9,17 @@ export default function ResumeUpload() {
     e.preventDefault();
     const reader = new FileReader();
     reader.onload = async (e) => { 
-      const text = e.target.result;
-      await findFullName(text)
-      // console.log(text);
-      // alert(text);
-
-
+      let text = e.target.result;
+      await findFullName(text);
     };
-
+    reader.readAsText(e.target.files[0]);
 }
     
       return (
         <div>
           <h1>PDF File Upload and Parse Example</h1>
-          <input type="file" onChange={showFile} />
+          <input type="file" id="file" onChange={showFile} />
+          {/* <button type="button" onClick={submitData}>Submit</button> */}
         </div>
       );
 }

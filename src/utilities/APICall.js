@@ -1,28 +1,35 @@
 // import fs from 'fs'
 
-import axios from 'axios'
-// const fs = require('fs');
-// const axios = require('axios');
-
+import axios from 'axios';
 // Read the resume text file
 // const resume = fs.readFileSync('resume.txt', 'utf-8');
 
 // Function to send a request to the OpenAI API
+
+export async function testFunc(text) {
+  console.log(text);
+}
 async function askOpenAI(prompt) {
+  const url = 'https://api.openai.com/v1/models/text-davinci-003';
+  const oldUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
   try {
-    const response = await axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', {
-      prompt: prompt,
-      max_tokens: 100,
-      temperature: 0.7,
-      top_p: 1.0,
-      n: 1,
-      stop: '\n'
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.API_KEY}`
+    const response = await axios.post(
+      url,
+      {
+        prompt: prompt,
+        max_tokens: 100,
+        temperature: 0.7,
+        top_p: 1.0,
+        n: 1,
+        stop: '\n',
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+        },
       }
-    });
+    );
 
     return response.data.choices[0].text.trim();
   } catch (error) {
@@ -31,11 +38,11 @@ async function askOpenAI(prompt) {
   }
 }
 
-
 // Prompt 0: Find and output full name
 export async function findFullName(resume) {
   const prompt = `Based on my resume:\n${resume}\nPlease find and output my full name.`;
   const response = await askOpenAI(prompt);
+  console.log(response);
   const fullName = response;
 
   // Save the full name in localStorage
@@ -79,7 +86,10 @@ export async function generateSecondWorkExperienceSynopsis(resume) {
   const synopsis = response;
 
   // Save the second work experience synopsis in localStorage
-  localStorage.setItem('secondWorkExperienceSynopsis', JSON.stringify(synopsis));
+  localStorage.setItem(
+    'secondWorkExperienceSynopsis',
+    JSON.stringify(synopsis)
+  );
 }
 
 // Prompt 4: Third work experience synopsis
