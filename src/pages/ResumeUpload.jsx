@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { findFullName, testFunc } from '../utilities/APICall';
+import { findFullName, findPhoneNumber, generateTagline, generateFirstWorkExperienceSynopsis, generateSecondWorkExperienceSynopsis, generateThirdWorkExperienceSynopsis } from '../utilities/APICall';
 
 // import PDFParser from 'pdf-parse';
 
@@ -10,7 +10,12 @@ export default function ResumeUpload() {
     const reader = new FileReader();
     reader.onload = async (e) => { 
       let text = e.target.result;
-      testFunc();
+      await findFullName(text);
+      await findPhoneNumber(text);
+      await generateTagline(text);
+      await generateFirstWorkExperienceSynopsis(text);
+      await generateSecondWorkExperienceSynopsis(text);
+      await generateThirdWorkExperienceSynopsis(text);
       window.location = '/preview';
     };
     reader.readAsText(e.target.files[0]);
