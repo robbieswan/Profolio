@@ -1,6 +1,5 @@
 // import fs from 'fs'
 
-import axios from 'axios';
 // Read the resume text file
 // const resume = fs.readFileSync('resume.txt', 'utf-8');
 
@@ -34,7 +33,6 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-
 
 export async function findFullName(resume) {
   try {

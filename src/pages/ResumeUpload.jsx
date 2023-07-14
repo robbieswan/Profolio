@@ -4,18 +4,21 @@ import { findFullName, findPhoneNumber, generateTagline, generateFirstWorkExperi
 // import PDFParser from 'pdf-parse';
 
 export default function ResumeUpload() {
+  const [loading, setLoading] = useState(false);
 
   async function showFile(e) {
     e.preventDefault();
+    setLoading(true);
     const reader = new FileReader();
     reader.onload = async (e) => { 
       let text = e.target.result;
-      await findFullName(text);
-      await findPhoneNumber(text);
-      await generateTagline(text);
-      await generateFirstWorkExperienceSynopsis(text);
-      await generateSecondWorkExperienceSynopsis(text);
-      await generateThirdWorkExperienceSynopsis(text);
+      setTimeout(() => console.log('loading'), 10000);
+      // await findFullName(text);
+      // await findPhoneNumber(text);
+      // await generateTagline(text);
+      // await generateFirstWorkExperienceSynopsis(text);
+      // await generateSecondWorkExperienceSynopsis(text);
+      // await generateThirdWorkExperienceSynopsis(text);
       window.location = '/preview';
     };
     reader.readAsText(e.target.files[0]);
@@ -24,7 +27,8 @@ export default function ResumeUpload() {
       return (
         <div>
           <h1>PDF File Upload and Parse Example</h1>
-          <input type="file" id="file" onChange={showFile} />
+          {!loading && <input type="file" id="file" onChange={showFile} />}
+          {loading && <p>Loading...</p>}
         </div>
       );
 }

@@ -60,6 +60,7 @@ export default function Preview(props) {
     <p className="my-8">{firstSynopsis}</p>
     <p className="my-8">{secondSynopsis}</p>
     <p className="my-8">{thirdSynopsis}</p>
+    <button type="button" className="border-2 border-blue-400 p-2 bg-blue-400 text-black hover:p-3 rounded" onClick={() => window.location = '/style_selection'}>Select Style</button>
   </div>
   }
 
