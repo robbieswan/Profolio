@@ -5,6 +5,14 @@ body {
   padding: 0;
 }
 
+h2{
+  font-size: 20px !important;
+}
+
+.head2{
+  font-size: 40px !important;
+}
+
 header {
   background-color: #f2f2f2;
   padding: 20px;
@@ -95,8 +103,8 @@ caption{
 }
 
 #first-image{
-  width: 80%;
-  height: 100%;
+  width: 100%;
+    height: 100%;
 }
 
 #caption1{
@@ -134,11 +142,13 @@ h3{
 /* testimonials */
 .testimonial {
 padding: 40px;
+color:white;
 background-color: #7188E8;
 text-align: center;
 border: #7188E8;
 border-radius: 10px;
-width: 1000px;
+width: 70%;
+height: 300px;
 margin-left: auto;
 margin-right: auto;
 display: grid;
@@ -148,6 +158,10 @@ grid-template-columns: 1fr 1fr 1fr;
 .testimonial h2 {
 font-size: 24px;
 margin-bottom: 20px;
+}
+.testimonial-item p {
+  font-size: 16px;
+  color: white;
 }
 
 .testimonial-item {
@@ -161,10 +175,12 @@ width: 80px;
 height: 80px;
 border-radius: 50%;
 margin-bottom: 10px;
+margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-item p {
-font-size: 16px;
+font-size: 18px;
 }
 
 

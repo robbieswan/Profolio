@@ -45,14 +45,14 @@ export default function Home() {
       </section>
 
     <section className="short-caption">
-        <h2>User-friendly Interface:</h2>
+        <h2 class="head2">User-friendly Interface:</h2>
       <p id="caption2">Our user-friendly interface makes it easy to create a personalized website without any coding or design skills.</p>
     </section>
 </div>
 
 <div className="bodyEx">  
     <section className="short-caption">
-        <h2>Customizable Templates:</h2>
+        <h2 class="head2">Customizable Templates:</h2>
       <p id="caption2">Choose from a range of customizable templates to showcase your work and achievements in the best possible way.</p>
     </section>
 
@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
     <section className="short-caption">
-        <h2>Ability to Upload Resume</h2>
+        <h2 class="head2">Ability to Upload Resume</h2>
       <p id="caption2">Upload your resume and showcase your skills, projects, and achievements in a professional and engaging way.</p>
     </section>
 </div>
@@ -76,7 +76,7 @@ export default function Home() {
 
 <div className="bodyEx">  
     <section className="short-caption">
-        <h2>Social media and email integration:</h2>
+        <h2 class="head2">Social media and email integration:</h2>
       <p id="caption2">Easily share your website on social media or include it in your email signature to make a lasting impression on recruiters and hiring managers.</p>
     </section>
 
@@ -89,7 +89,7 @@ export default function Home() {
 </div>
 
 {/* Testimonials */}
-<h3>Testimonials</h3>
+<h3 class="head2">Testimonials</h3>
 <section className="testimonial">
 
     <div className="testimonial-item">
