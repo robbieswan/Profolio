@@ -12,13 +12,12 @@ export default function ResumeUpload() {
     const reader = new FileReader();
     reader.onload = async (e) => { 
       let text = e.target.result;
-      setTimeout(() => console.log('loading'), 10000);
-      // await findFullName(text);
-      // await findPhoneNumber(text);
-      // await generateTagline(text);
-      // await generateFirstWorkExperienceSynopsis(text);
-      // await generateSecondWorkExperienceSynopsis(text);
-      // await generateThirdWorkExperienceSynopsis(text);
+      await findFullName(text);
+      await findPhoneNumber(text);
+      await generateTagline(text);
+      await generateFirstWorkExperienceSynopsis(text);
+      await generateSecondWorkExperienceSynopsis(text);
+      await generateThirdWorkExperienceSynopsis(text);
       window.location = '/preview';
     };
     reader.readAsText(e.target.files[0]);
