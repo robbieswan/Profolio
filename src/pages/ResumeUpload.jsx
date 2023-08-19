@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { findFullName, findPhoneNumber, generateTagline, generateFirstWorkExperienceSynopsis, generateSecondWorkExperienceSynopsis, generateThirdWorkExperienceSynopsis } from '../utilities/APICall';
 
 // import PDFParser from 'pdf-parse';
@@ -10,7 +10,7 @@ export default function ResumeUpload() {
     e.preventDefault();
     setLoading(true);
     const reader = new FileReader();
-    reader.onload = async (e) => { 
+    reader.onload = async (e) => {
       let text = e.target.result;
       await findFullName(text);
       await findPhoneNumber(text);
